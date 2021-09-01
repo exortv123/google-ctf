@@ -1,0 +1,31 @@
+</head>
+<body>
+  <div class="outer">
+    <div class="top"><div>Industrial CCTV by YesWeAreSecure&trade;</div></div>
+    <div class="container">
+      <div class="panel">
+        <p>Password:</p>
+        <input id="password">
+        <p><button id="go">Log in</button></p>
+      </div>
+    </div>
+    <div class="bottom"><div>Use the panel to log in.</div></div>
+  </div>
+</body>
+<script>
+const checkPassword = () => {
+  const v = document.getElementById("password").value;
+  const p = Array.from(v).map(a => 0xCafe + a.charCodeAt(0));
+  console.log(p)
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("go").addEventListener("click", checkPassword);
+  document.getElementById("password").addEventListener("keydown", e => {
+    if (e.keyCode === 13) {
+      checkPassword();
+    }
+  });
+}, false);
+</script>
+</html>
